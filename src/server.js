@@ -1,8 +1,10 @@
-import { createApp } from "./app.js";
-import { env } from "./config/env.js";
+import dotenv from 'dotenv';
+import app from './app.js';
 
-const app = createApp();
+dotenv.config();
 
-app.listen(env.port, () => {
-  console.log(`SMTP service running on port ${env.port}`);
+const PORT = process.env.PORT || 4003;
+
+app.listen(PORT, () => {
+  console.log(`SMTP Microservice running on port ${PORT}`);
 });
